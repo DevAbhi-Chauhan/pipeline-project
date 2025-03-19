@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: latest
+    commands:
+      - echo Installing dependencies...
+      - cd frontend && npm install
+      - cd ../backend && npm install
+  build:
+    commands:
+      - echo Running build process...
+      - cd frontend && npm run build
+artifacts:
+  files:
+    - '**/*'
+  base-directory: ./
